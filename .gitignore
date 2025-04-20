@@ -1,0 +1,62 @@
+# created by virtualenv automatically
+.venv/bin
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# macOS / Windows system files
+.DS_Store
+Thumbs.db
+
+# Environment variables / secrets
+.env
+.env.*
+
+# Logs and debugging
+*.log
+*.out
+*.bak
+*.tmp
+
+# Test outputs
+.coverage
+coverage/
+htmlcov/
+.pytest_cache/
+nosetests.xml
+test-results/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+MANIFEST
+
+# MyPy / type checker
+.mypy_cache/
+.dmypy.json
+dmypy.jsons
+
+# Pyre type checker
+.pyre/
+
+# PyCharm / JetBrains
+.idea/
+
+# VS Code workspace
+*.code-workspace
+s
