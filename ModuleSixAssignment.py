@@ -23,23 +23,35 @@ print("You're trapped in the Armitage house. \nFind a way out before Mrs. Armita
 print("\nType: 'Go North', 'Go East', 'Go West', or 'Go South' to move. Type 'exit' to quit.\n")
 
 # Game
+# Input handling enhanced based on instructor feedback:
+# - Trims whitespace
+# - Accepts flexible input like " go   north"
+# - Validates direction and format
 while current_room != 'exit':
     print("You're currently in the", current_room.replace('_', ' '))
+
+    # Get player input
     command = input("Enter your next move: ").strip().lower()
+    split_command = command.split()
+
 
     if command == 'exit':
         print("\n       You feel yourself waking up... maybe...")
-        current_room = 'exit'
+        break
 
-    elif command.startswith("go "):
-        direction = command[3:].capitalize()
+    if len(split_command) < 2:
+        print("  ❌ Invalid command format. Try something like 'go north' or 'get car keys'.\n")
+        continue
 
-        if direction in rooms[current_room]:
-            next_room = rooms[current_room][direction]
-            print(f"You move {direction} to the {next_room.replace('_', ' ')}.\n")
-            current_room = next_room
+    direction = split_command[0]
+    next_room = ' '.join(split_command[1:]).title()
+
+    if direction == "go":
+        if next_room in rooms[current_room]:
+            current_room = rooms[current_room][next_room]
+            print(f"You move {next_room} to the {current_room.replace('_', ' ')}.\n")
         else:
-            print("No... You can't go that way. Be quiet and try again...\n")
+            print(" 🚫 No... You can't go that way. Be quiet and try again...\n")
 
     else:
-        print("NO! You can't go that way!!! Try 'go North' or type 'exit'.\n")
+        print("Invalid command!!! Try 'go North' or type 'exit'.\n")
